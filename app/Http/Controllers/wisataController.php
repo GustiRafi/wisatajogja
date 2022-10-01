@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\wisata;
+use App\Models\categori;
 
 class wisataController extends Controller
 {
@@ -14,8 +15,9 @@ class wisataController extends Controller
      */
     public function index()
     {
-        return view('dashboard',[
+        return view('dashboard.wisata',[
             'wisatas' => wisata::all(),
+            'categoris' => categori::all(),
         ]);
     }
 
