@@ -6,7 +6,7 @@
             </button>
         </div>
         <div>
-            <a class="navbar-brand brand-logo" href="index.html">
+            <a class="navbar-brand brand-logo" href="/dashboard">
                 <img src="/images/logo.svg" alt="logo" />
             </a>
             <a class="navbar-brand brand-logo-mini" href="index.html">
@@ -27,14 +27,13 @@
                     <img class="img-xs rounded-circle" src="/images/faces/face8.jpg" alt="Profile image"> </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                     <div class="dropdown-header text-center">
-                        <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
+                        <img class="img-md rounded-circle" src="/images/faces/face8.jpg" alt="Profile image">
                         <p class="mb-1 mt-3 font-weight-semibold">{{auth()->user()->name}}</p>
                         <p class="fw-light text-muted mb-0">{{auth()->user()->email}}</p>
                     </div>
                     <form action="/logout" method="post" class="d-inline">
                         @csrf
-                        <button type="submit" class="dropdown-item"
-                            onclick="return confirm('Are you sure to logout')"><i
+                        <button type="submit" class="dropdown-item" id="logout"><i
                                 class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign
                             Out</button>
                     </form>

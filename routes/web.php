@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
         ]);
     })->name('dashboard');
     Route::resource('/dashboard/wisata', App\Http\Controllers\wisataController::class);
-    Route::resource('/dashboard/kategori',App\Http\Controllers\categoriController::class);
+    Route::resource('/dashboard/categori',App\Http\Controllers\categoriController::class);
 });
 
 require __DIR__.'/auth.php';
