@@ -6,9 +6,11 @@
             </button>
         </div>
         <div>
+            @foreach($logos as $brand)
             <a class="navbar-brand brand-logo" href="/dashboard">
-                <img src="/images/logo.svg" alt="logo" />
+                <img src="{{ asset('storage/' . $brand->logo) }}" alt="logo" />
             </a>
+            @endforeach
             <a class="navbar-brand brand-logo-mini" href="index.html">
                 <img src="/images/logo-mini.svg" alt="logo" />
             </a>

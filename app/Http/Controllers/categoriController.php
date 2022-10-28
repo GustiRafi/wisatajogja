@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\categori;
+use App\Models\logo;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -18,6 +19,7 @@ class categoriController extends Controller
     {
         return view('dashboard.categori',[
             'categoris' => categori::orderBy('id','desc')->get(),
+            'logos' => logo::all(),
         ]);
     }
 

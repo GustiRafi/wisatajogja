@@ -17,7 +17,7 @@ class wisataSeeder extends Seeder
     {
         // wisata::truncate();
         $heading = true;
-        $input_file = fopen(base_path("database/data/wisata.csv"),"r");
+        $input_file = fopen(base_path("database/data/wisata2.csv"),"r");
         $lenght = feof($input_file);
         while (($record = fgetcsv($input_file,$lenght,";")) != false )
         {
@@ -33,7 +33,7 @@ class wisataSeeder extends Seeder
                     "tiket_price" => $record[9],
                     "jam_buka" => $record[10],
                     "rute" => $record[11],
-                    "image" => $record[12],
+                    "image" => $record[13],
                 ];
                 
                 wisata::create($wisata);

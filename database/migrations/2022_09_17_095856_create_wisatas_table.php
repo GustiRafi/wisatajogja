@@ -25,7 +25,7 @@ return new class extends Migration
             $table->text('tiket_price');
             $table->text('jam_buka');
             $table->text('rute');
-            $table->string('image');
+            $table->text('image');
             $table->timestamps();
         });
     }

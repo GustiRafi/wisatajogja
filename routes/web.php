@@ -21,11 +21,27 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard',[
-            'wisatas' => App\Models\wisata::all(),
+            'wisata' => App\Models\wisata::all(),
+            'kategori' => App\Models\categori::all(),
+            'logos' => App\Models\logo::all(),
         ]);
     })->name('dashboard');
     Route::resource('/dashboard/wisata', App\Http\Controllers\wisataController::class);
     Route::resource('/dashboard/categori',App\Http\Controllers\categoriController::class);
+
+    Route::prefix("/settings")->group(function (){
+        Route::get("/logo", [App\Http\Controllers\logoController::class,'index']);
+        Route::get("/about", [App\Http\Controllers\aboutController::class,'index']);
+        Route::get("/contact", [App\Http\Controllers\contactController::class,'index']);
+
+        Route::post('/logo/{id}',[App\Http\Controllers\logoController::class,'update']);
+        Route::post("/about/{id}", [App\Http\Controllers\aboutController::class,'update']);
+        Route::post("/contact/{id}", [App\Http\Controllers\contactController::class,'update']);
+    });
+
+    Route::prefix("/account")->group(function(){
+        Route::get('/change-password',[App\Http\Controllers\aboutController::class,'index']);
+    });
 });
 
 require __DIR__.'/auth.php';

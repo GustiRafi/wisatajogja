@@ -9,14 +9,14 @@
         </button>
     </div>
     <div class="float-end mb-4">
-        <form action="" method="get">
-            <select name="categori" class="form-select" id="categoti">
-                <option selected>category</option>
-                @foreach($categoris as $categori)
-                <option value="{{$categori->id}}">{{$categori->nama}}</option>
-                @endforeach
-            </select>
-        </form>
+        <!-- <form action="" method="get"> -->
+        <select name="categori" class="form-select" id="categoti">
+            <option selected>category</option>
+            @foreach($categoris as $categori)
+            <option value="{{$categori->id}}">{{$categori->nama}}</option>
+            @endforeach
+        </select>
+        <!-- </form> -->
     </div>
 </div>
 
@@ -218,7 +218,7 @@
                 <h3>{{$wisata->nama}}</h3>
                 {!! $wisata->maps !!}
                 @foreach(explode(',', $wisata->image) as $img)
-                <img src="{{ asset('storage/' . $img) }}" class="img-fluid w-100" alt="" srcset="">
+                <img src="{!! $img !!}" class="img-fluid w-100">
                 @endforeach
             </div>
             <div class="modal-footer">
@@ -296,7 +296,8 @@
                             {{ $message }}
                         </div>
                         @enderror
-                        <input id="deskripsi" type="hidden" name="deskripsi" value="asw">
+                        <input id="deskripsi" type="hidden" name="deskripsi"
+                            value="{{ old('deskripsi',$wisata->deskripsi) }}">
                         <trix-editor input="deskripsi"></trix-editor>
                     </div>
                     <div class="mb-3">
@@ -341,7 +342,7 @@
                         @enderror
                         <label for="rute">Rute</label>
                         <input id="rute" type="hidden" name="rute" value="{{ old('rute',$wisata->rute) }}" required>
-                        <trix-editor input="rute" value="{{ old('rute',$wisata->rute) }}"></trix-editor>
+                        <trix-editor input="rute"></trix-editor>
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>
@@ -368,4 +369,27 @@
 <div class="mt-4">
     {{$wisatas->links()}}
 </div>
+
+<script type="text/javascript">
+$('#categori').on('change', function() {
+    $value = $(this).val();
+    $.ajax({
+        type: 'get',
+        url: '/dashboard/wisata',
+        data: {
+            'categori': $value
+        },
+        success: function(data) {
+            $('tbody').html(data);
+        }
+    });
+})
+</script>
+<script type="text/javascript">
+$.ajaxSetup({
+    headers: {
+        'csrftoken': '{{ csrf_token() }}'
+    }
+});
+</script>
 @endsection

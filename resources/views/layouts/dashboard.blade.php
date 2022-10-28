@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>WisataJogja</title>
+    <title>Wonderful Yogyakarta</title>
+    <!-- <meta name="_token" content="{{ csrf_token() }}"> -->
     <link rel="stylesheet" href="/vendors/feather/feather.css">
     <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/vendors/ti-icons/css/themify-icons.css">
@@ -14,8 +15,11 @@
     <link rel="stylesheet" href="/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
     <link rel="stylesheet" href="/js/select.dataTables.min.css">
     <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
-    <link rel="shortcut icon" href="/images/favicon.png" />
+    @foreach($logos as $brand)
+    <link rel="shortcut icon" href="/storage/{{ $brand->logo }}" />
+    @endforeach
     <link rel="stylesheet" href="/trix.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- <link rel="stylesheet" href="/style.css"> -->
     <style>
     trix-toolbar [data-trix-button-group="file-tools"] {
@@ -54,8 +58,8 @@
     <script src="/js/Chart.roundedBarCharts.js"></script>
     <script src="/trix.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.1.slim.js"
-        integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.js"
+        integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
     <script>
     document.addEventListener("trix-file-accept", event => {
         event.preventDefault()
@@ -72,7 +76,14 @@
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    event
+                    $.ajax({
+                        type: 'post',
+                        url: '/logout',
+                        data: {
+                            // 'categori': $value
+                        },
+
+                    });
                 }
             });
     });

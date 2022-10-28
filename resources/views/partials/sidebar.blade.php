@@ -18,6 +18,21 @@
                 <span class="menu-title">Wisata</span>
             </a>
         </li>
-
+        <li class="nav-item nav-category">Web Settings</li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#web-settings" aria-expanded="false"
+                aria-controls="web-settings">
+                <i class="menu-icon mdi mdi-settings"></i>
+                <span class="menu-title">Web Settings</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="web-settings">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="/settings/logo">Logo</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/settings/contact">Contact</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/settings/about">About</a></li>
+                </ul>
+            </div>
+        </li>
     </ul>
 </nav>

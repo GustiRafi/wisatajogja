@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File; 
+use App\Models\logo;
 
 class wisataController extends Controller
 {
@@ -22,6 +23,7 @@ class wisataController extends Controller
         return view('dashboard.wisata',[
             'wisatas' => wisata::orderBy('id','desc')->paginate(20),
             'categoris' => categori::all(),
+            'logos' => logo::all(),
         ]);
     }
 
@@ -64,7 +66,7 @@ class wisataController extends Controller
             $time = date_format($var, 'YmdHis');
             $imageName = $time . Str::random(5) . '.' . $file->getClientOriginalExtension();
             $file->move(base_path() . '/public/storage/wisata/', $imageName);
-            $arr[] = 'wisata/'.$imageName;
+            $arr[] = '/storage/wisata/'.$imageName;
             }
             $image = implode(",", $arr);
             $validate['image'] = $image ;
@@ -107,6 +109,8 @@ class wisataController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $wisata = wisata::find($id);
+
         $validate = $request->validate([
             'nama' => ['required','max:255'],
             'categori_id' => ['required'],
@@ -122,19 +126,19 @@ class wisataController extends Controller
 
         dd($validate);
 
-        if($request->slug)
+        if($request->slug != $wisata->slug)
         {
             $validate['slug'] = SlugService::createSlug(wisata::class, 'slug', $request->nama,['unique' => true]);
         }
         if($request->file("image"))
         {
-            if($request->oldimage)
+            if($wisata->image)
             {
-                foreach(explode(',',$request->oldimage) as $img)
+                foreach(explode(',',$wisata->image) as $img)
                 {
                     $img_arr[] = $img;
                 }
-                Storage::delete($img_arr);
+                File::delete($img_arr);
             }
             foreach ($request->file('image') as $file) 
             {
@@ -142,7 +146,7 @@ class wisataController extends Controller
             $time = date_format($var, 'YmdHis');
             $imageName = $time . Str::random(5) . '.' . $file->getClientOriginalExtension();
             $file->move(base_path() . '/public/storage/wisata/', $imageName);
-            $arr[] = 'wisata/'.$imageName;
+            $arr[] = '/storage/wisata/'.$imageName;
             }
             $image = implode(",", $arr);
             $validate['image'] = $image ;
@@ -166,7 +170,7 @@ class wisataController extends Controller
         {
             $img_arr[] = $img;
         }
-        Storage::delete($img_arr);
+        File::delete($img_arr);
 
         wisata::where('id', $id)->delete();
         
