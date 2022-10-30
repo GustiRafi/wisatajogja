@@ -26,17 +26,19 @@
         <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown d-none d-lg-block user-dropdown">
                 <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img class="img-xs rounded-circle" src="/images/faces/face8.jpg" alt="Profile image"> </a>
+                    <img class="img-xs rounded-circle" src="{{ asset('storage/' . auth()->user()->image) }}"
+                        alt="Profile image"> </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                     <div class="dropdown-header text-center">
-                        <img class="img-md rounded-circle" src="/images/faces/face8.jpg" alt="Profile image">
+                        <img class="img-xs rounded-circle" src="{{ asset('storage/' . auth()->user()->image) }}"
+                            alt="Profile image">
                         <p class="mb-1 mt-3 font-weight-semibold">{{auth()->user()->name}}</p>
                         <p class="fw-light text-muted mb-0">{{auth()->user()->email}}</p>
                     </div>
-                    <form action="/logout" method="post" class="d-inline">
+                    <form action="/logout" method="post" id="logot" class="d-inline">
                         @csrf
-                        <button type="submit" class="dropdown-item" id="logout"><i
-                                class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign
+                        <button type="submit" class="dropdown-item" onclick="return confirm('Are You Sure To Logout?')"
+                            id="logout"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign
                             Out</button>
                     </form>
                 </div>

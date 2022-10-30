@@ -34,5 +34,22 @@
                 </ul>
             </div>
         </li>
+        <li class="nav-item nav-category">Account</li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#account-settings" aria-expanded="false"
+                aria-controls="account-settings">
+                <i class="menu-icon  mdi mdi-account-circle"></i>
+                <span class="menu-title">Account Settings</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="account-settings">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="/account/change-profile"><i
+                                class="mdi mdi-account-check me-3"></i>Change Profile</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/account/change-password"><i
+                                class="mdi mdi-key-change me-3"></i>Change Password</a></li>
+                </ul>
+            </div>
+        </li>
     </ul>
 </nav>

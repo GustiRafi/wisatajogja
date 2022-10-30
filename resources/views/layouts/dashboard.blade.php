@@ -65,28 +65,36 @@
         event.preventDefault()
     })
 
+    function showpassword() {
+        var currentpassword = document.getElementById("currentpassword");
+        var password = document.getElementById("password");
+        var confirmpassword = document.getElementById("confirmpassword");
+        if (currentpassword.type === "password") {
+            currentpassword.type = "text";
+            password.type = "text";
+            confirmpassword.type = "text";
+        } else {
+            currentpassword.type = "password";
+            password.type = "password";
+            confirmpassword.type = "password";
+        }
+    }
 
-    document.getElementById("logout").addEventListener("click", function(event) {
-        event.preventDefault()
-        swal({
-                title: "Are you sure to Logout?",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    $.ajax({
-                        type: 'post',
-                        url: '/logout',
-                        data: {
-                            // 'categori': $value
-                        },
 
-                    });
-                }
-            });
-    });
+    // document.getElementById("logout").addEventListener("click", function(event) {
+    //     event.preventDefault()
+    //     swal({
+    //             title: "Are you sure to Logout?",
+    //             icon: "warning",
+    //             buttons: true,
+    //             dangerMode: true,
+    //         })
+    //         .then((willDelete) => {
+    //             if (willDelete) {
+    //                 document.getElementById("logot").action = "/logout";
+    //             }
+    //         });
+    // });
 
     // const title = document.querySelector('#nama');
     // const slug = document.querySelector('#slug');

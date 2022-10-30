@@ -40,7 +40,11 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix("/account")->group(function(){
-        Route::get('/change-password',[App\Http\Controllers\aboutController::class,'index']);
+        Route::get('/change-profile',[App\Http\Controllers\Auth\editProfileController::class,'index']);
+        Route::post('/change-profile/{id}',[App\Http\Controllers\Auth\editProfileController::class,'change']);
+
+        Route::get('/change-password',[App\Http\Controllers\Auth\changePasswordController::class,'index']);
+        Route::post('/change-password',[App\Http\Controllers\Auth\changePasswordController::class,'changepassword']);
     });
 });
 
