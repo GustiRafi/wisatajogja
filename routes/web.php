@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
         return view('dashboard',[
             'wisata' => App\Models\wisata::all(),
             'kategori' => App\Models\categori::all(),
+            'komen' => App\Models\comment::all(),
             'logos' => App\Models\logo::all(),
         ]);
     })->name('dashboard');
@@ -33,10 +34,14 @@ Route::middleware('auth')->group(function () {
         Route::get("/logo", [App\Http\Controllers\logoController::class,'index']);
         Route::get("/about", [App\Http\Controllers\aboutController::class,'index']);
         Route::get("/contact", [App\Http\Controllers\contactController::class,'index']);
+        Route::get("/cover", [App\Http\Controllers\coverController::class,'index']);
 
         Route::post('/logo/{id}',[App\Http\Controllers\logoController::class,'update']);
         Route::post("/about/{id}", [App\Http\Controllers\aboutController::class,'update']);
         Route::post("/contact/{id}", [App\Http\Controllers\contactController::class,'update']);
+        Route::post("/cover/{id}", [App\Http\Controllers\coverController::class,'update']);
+
+        Route::resource('/media-sosial',App\Http\Controllers\sosmedController::class);
     });
 
     Route::prefix("/account")->group(function(){

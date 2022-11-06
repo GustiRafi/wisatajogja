@@ -21,7 +21,7 @@ class wisataController extends Controller
     public function index()
     {
         return view('dashboard.wisata',[
-            'wisatas' => wisata::orderBy('id','desc')->paginate(20),
+            'wisatas' => wisata::orderBy('id','desc')->get(),
             'categoris' => categori::all(),
             'logos' => logo::all(),
         ]);

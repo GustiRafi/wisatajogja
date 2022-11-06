@@ -36,7 +36,7 @@
             <div class="px-3 py-5">
                 <div class="row row-cols-2">
                     <div class="col-8">
-                        <h3>{{ count($wisata) }}</h3>
+                        <h3>{{ count($komen) }}</h3>
                         <h5><strong> Jumlah Komentar</strong></h5>
                     </div>
                     <div class="col-4">

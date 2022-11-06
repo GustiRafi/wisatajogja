@@ -2,22 +2,10 @@
 @section('dashboard')
 
 <div class="pb-4">
-    <div class="float-start mb-4">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahwisata">
-            Add New Destination
-        </button>
-    </div>
-    <div class="float-end mb-4">
-        <!-- <form action="" method="get"> -->
-        <select name="categori" class="form-select" id="categoti">
-            <option selected>category</option>
-            @foreach($categoris as $categori)
-            <option value="{{$categori->id}}">{{$categori->nama}}</option>
-            @endforeach
-        </select>
-        <!-- </form> -->
-    </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahwisata">
+        Add New Destination
+    </button>
 </div>
 
 <!-- Modal -->
@@ -167,19 +155,19 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
-<table class="table table-hover">
+<table id="table_id" class="table table-hover">
     <thead class="bg-primary">
         <tr>
-            <th scope="col">No</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Kategori</th>
-            <th scope="col">Action</th>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Kategori</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
         @foreach($wisatas as $wisata)
-        <tr class="">
-            <td scope="row">{{$loop->iteration}}</td>
+        <tr>
+            <td>{{$loop->iteration}}</td>
             <td>{{$wisata->nama}}</td>
             <td>{{$wisata->categori->nama}}</td>
             <td>
@@ -217,9 +205,16 @@
             <div class="modal-body">
                 <h3>{{$wisata->nama}}</h3>
                 {!! $wisata->maps !!}
-                @foreach(explode(',', $wisata->image) as $img)
-                <img src="{!! $img !!}" class="img-fluid w-100">
-                @endforeach
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        @foreach(explode(',', $wisata->image) as $img)
+                        <div class="swiper-slide">
+                            <img src="{!! $img !!}" />
+                        </div>
+                        @endforeach
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -296,9 +291,9 @@
                             {{ $message }}
                         </div>
                         @enderror
-                        <input id="deskripsi" type="hidden" name="deskripsi"
-                            value="{{ old('deskripsi',$wisata->deskripsi) }}">
-                        <trix-editor input="deskripsi"></trix-editor>
+                        <input id="editdeskripsi" type="hidden" name="deskripsi"
+                            value="{{old('deskripsi',$wisata->deskripsi)}}">
+                        <trix-editor input="editdeskripsi"></trix-editor>
                     </div>
                     <div class="mb-3">
                         @error('fasilitas')
@@ -307,9 +302,9 @@
                         </div>
                         @enderror
                         <label for="fasilitas">Fasilitas</label>
-                        <input id="fasilitas" type="hidden" name="fasilitas"
+                        <input id="editfasilitas" type="hidden" name="fasilitas"
                             value="{{ old('fasilitas',$wisata->fasilitas) }}">
-                        <trix-editor input="fasilitas"></trix-editor>
+                        <trix-editor input="editfasilitas"></trix-editor>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text"
@@ -330,9 +325,9 @@
                         </div>
                         @enderror
                         <label for="jam_buka">Open</label>
-                        <input id="jam_buka" type="hidden" name="jam_buka"
+                        <input id="editjam_buka" type="hidden" name="jam_buka"
                             value="{{ old('jam_buka',$wisata->jam_buka) }}" required>
-                        <trix-editor input="jam_buka"></trix-editor>
+                        <trix-editor input="editjam_buka"></trix-editor>
                     </div>
                     <div class="mb-3">
                         @error('rute')
@@ -341,8 +336,8 @@
                         </div>
                         @enderror
                         <label for="rute">Rute</label>
-                        <input id="rute" type="hidden" name="rute" value="{{ old('rute',$wisata->rute) }}" required>
-                        <trix-editor input="rute"></trix-editor>
+                        <input id="editrute" type="hidden" name="rute" value="{{ old('rute',$wisata->rute) }}" required>
+                        <trix-editor input="editrute"></trix-editor>
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>
@@ -366,9 +361,7 @@
 </div>
 <!-- akhir modal edit -->
 @endforeach
-<div class="mt-4">
-    {{$wisatas->links()}}
-</div>
+
 
 <script type="text/javascript">
 $('#categori').on('change', function() {

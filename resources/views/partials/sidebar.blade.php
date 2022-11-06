@@ -30,6 +30,8 @@
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="/settings/logo">Logo</a></li>
                     <li class="nav-item"> <a class="nav-link" href="/settings/contact">Contact</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/settings/media-sosial">Media Sosial</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/settings/cover">Web Cover</a></li>
                     <li class="nav-item"> <a class="nav-link" href="/settings/about">About</a></li>
                 </ul>
             </div>
