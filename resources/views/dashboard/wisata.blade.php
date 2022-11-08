@@ -204,7 +204,6 @@
             </div>
             <div class="modal-body">
                 <h3>{{$wisata->nama}}</h3>
-                {!! $wisata->maps !!}
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         @foreach(explode(',', $wisata->image) as $img)
@@ -214,6 +213,55 @@
                         @endforeach
                     </div>
                     <div class="swiper-pagination"></div>
+                </div>
+                <ul class="nav nav-pills my-3 justify-content-center" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-overview{{$wisata->id}}-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-overview{{$wisata->id}}" type="button" role="tab"
+                            aria-controls="pills-overview{{$wisata->id}}" aria-selected="true">Overview</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-lokasi{{$wisata->id}}-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-lokasi{{$wisata->id}}" type="button" role="tab"
+                            aria-controls="pills-lokasi{{$wisata->id}}" aria-selected="false">Lokasi</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-rute{{$wisata->id}}-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-rute{{$wisata->id}}" type="button" role="tab"
+                            aria-controls="pills-rute{{$wisata->id}}" aria-selected="false">Rute</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-harga-tiket{{$wisata->id}}-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-harga-tiket{{$wisata->id}}" type="button" role="tab"
+                            aria-controls="pills-" aria-selected="false">Harga Tiket</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-fasilitas{{$wisata->id}}-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-fasilitas{{$wisata->id}}" type="button" role="tab"
+                            aria-controls="pills-" aria-selected="false">Fasilitas</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-jam_buka{{$wisata->id}}-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-jam_buka{{$wisata->id}}" type="button" role="tab"
+                            aria-controls="pills-" aria-selected="false">Jam Buka</button>
+                    </li>
+                </ul>
+                <div class="tab-content text-black" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-overview{{$wisata->id}}" role="tabpanel"
+                        aria-labelledby="pills-overview{{$wisata->id}}-tab" tabindex="0">
+                        {!! $wisata->deskripsi !!}
+                    </div>
+                    <div class="tab-pane fade" id="pills-lokasi{{$wisata->id}}" role="tabpanel"
+                        aria-labelledby="pills-lokasi{{$wisata->id}}-tab" tabindex="0">{!! $wisata->maps !!}</div>
+                    <div class="tab-pane fade" id="pills-rute{{$wisata->id}}" role="tabpanel"
+                        aria-labelledby="pills-rute{{$wisata->id}}-tab" tabindex="0">{!!$wisata->rute!!}</div>
+                    <div class="tab-pane fade" id="pills-harga-tiket{{$wisata->id}}" role="tabpanel"
+                        aria-labelledby="pills-harga-tiket{{$wisata->id}}-tab" tabindex="0">{{$wisata->tiket_price}}
+                    </div>
+                    <div class="tab-pane fade" id="pills-fasilitas{{$wisata->id}}" role="tabpanel"
+                        aria-labelledby="pills-fasilitas{{$wisata->id}}-tab" tabindex="0">{!!$wisata->fasilitas!!}</div>
+                    <div class="tab-pane fade" id="pills-jam_buka{{$wisata->id}}" role="tabpanel"
+                        aria-labelledby="pills-jam_buka{{$wisata->id}}-tab" tabindex="0">{!!$wisata->jam_buka!!}</div>
                 </div>
             </div>
             <div class="modal-footer">

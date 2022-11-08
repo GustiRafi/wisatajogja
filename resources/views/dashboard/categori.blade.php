@@ -105,7 +105,7 @@
             </div>
             <div class="modal-body">
                 <h3>{{$categori->nama}}</h3>
-                <img src="{{ asset('storage/' . $categori->image) }}">
+                <img src="{{ asset('storage/' . $categori->image) }}" class="w-100 img-fluid">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Exit</button>
@@ -140,7 +140,7 @@
                     <div class="form-floating mb-3">
                         <input type="hidden" class="form-control" id="slug" name="slug" placeholder="slug"
                             value="{{ old('slug',$categori->slug) }}" hidden>
-                        <label for="slug">Slug</label>
+                        <!-- <label for="slug">Slug</label> -->
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">image</label>

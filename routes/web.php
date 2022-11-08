@@ -15,7 +15,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index',[
+        'jombotron' => App\Models\cover::all(),
+        'logos' => App\Models\logo::all(),
+        'categoris' => App\Models\categori::all(),
+        'cover' => App\Models\cover::all(),
+    ]);
+});
+Route::get('/wisata-jogja/{slug}', function ($slug) {
+    $categori = App\Models\categori::firstWhere('slug',$slug);
+    return view('home.daftarwisata',[
+        'jombotron' => App\Models\cover::all(),
+        'logos' => App\Models\logo::all(),
+        'wisatas' => App\Models\wisata::Where('categori_id',$categori->id)->orderBy('id','desc')->paginate(5),
+    ]);
+});
+Route::get('/detail-wisata/{slug}', function ($slug) {
+    return view('home.detail-wisata',[
+        'jombotron' => App\Models\cover::all(),
+        'logos' => App\Models\logo::all(),
+        'wisata' => App\Models\wisata::firstWhere('slug',$slug),
+    ]);
 });
 
 Route::middleware('auth')->group(function () {
