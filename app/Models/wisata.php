@@ -18,6 +18,11 @@ class wisata extends Model
         return $this->belongsTo(categori::class);
     }
 
+    public function comment()
+    {
+        return $this->hasMany(comment::class);
+    }
+
     public function sluggable(): array
     {
         return [

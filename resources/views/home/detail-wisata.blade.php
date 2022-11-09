@@ -1,5 +1,38 @@
 @extends('layouts.home')
 @section('home')
+<style>
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 75%;
+    height: 75%;
+    object-fit: cover;
+}
+</style>
 <main id="main">
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
@@ -93,26 +126,28 @@
                 <div class="col-md-6 col-12 px-2">
                     <div class="p-5 border bg-white shadow-sm">
                         <h4 class="text-center mt-2"> Komentar</h4>
-                        <form>
+                        <form method="post">
                             <div class="mb-3">
-                                <label for="exampleInputnama1" class="form-label">Nama</label>
-                                <input type="name" class="form-control" id="exampleInputnama1"
-                                    aria-describedby="namaHelp">
+                                <label for="name" class="form-label">Nama</label>
+                                <input type="name" class="form-control" id="name" aria-describedby="namaHelp"
+                                    name="name">
                                 <div id="namaHelp" class="form-text">We'll never share your nama with anyone else.
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                    name="email">
                                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputkomentar1" class="form-label">Komentar</label>
-                                <textarea class="form-control" id="floatingTextarea2" style="height: 100px"></textarea>
+                                <label for="coment" class="form-label">Komentar</label>
+                                <textarea class="form-control" id="coment" name="coment"
+                                    style="height: 100px"></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary float-end">Submit</button>
+                            <input type="text" name="wisata_id" id="wisata_id" value="{{$wisata->id}}">
+                            <button type="submit" id="submit" class="btn btn-primary float-end">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -131,4 +166,28 @@
     <!-- End Why Us Section -->
 
 </main>
+<script>
+$(document).ready(function() {
+    $("#submit").click(function(e) {
+        e.preventDefault();
+        name = $("#name").val();
+        email = $("#email").val();
+        coment = $("#coment").val();
+        wisata_id = $('#wisata_id').val();
+        $.ajax({
+            type: "POST",
+            data: {
+                "name": name,
+                "email": email,
+                "coment": coment,
+                "wisata_id": wisata_id
+            },
+            url: "/coment/" + wisata_id,
+            success: function(data) {
+                $("#success").html(data);
+            }
+        });
+    });
+});
+</script>
 @endsection

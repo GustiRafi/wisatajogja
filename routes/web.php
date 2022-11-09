@@ -27,7 +27,7 @@ Route::get('/wisata-jogja/{slug}', function ($slug) {
     return view('home.daftarwisata',[
         'jombotron' => App\Models\cover::all(),
         'logos' => App\Models\logo::all(),
-        'wisatas' => App\Models\wisata::Where('categori_id',$categori->id)->orderBy('id','desc')->paginate(5),
+        'wisatas' => App\Models\wisata::Where('categori_id',$categori->id)->orderBy('id','desc')->get(),
     ]);
 });
 Route::get('/detail-wisata/{slug}', function ($slug) {
