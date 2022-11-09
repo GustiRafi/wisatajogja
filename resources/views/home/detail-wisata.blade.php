@@ -61,6 +61,9 @@
                                         <button class="nav-link active" id="pills-overview-tab" data-bs-toggle="pill"
                                             data-bs-target="#pills-overview" type="button" role="tab"
                                             aria-controls="pills-overview" aria-selected="true">aan</button>
+                                        <button class="nav-link active" id="pills-overview-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-overview" type="button" role="tab"
+                                            aria-controls="pills-overview" aria-selected="true">aan</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="pills-lokasi-tab" data-bs-toggle="pill"
