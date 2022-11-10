@@ -60,7 +60,14 @@
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link active" id="pills-overview-tab" data-bs-toggle="pill"
                                             data-bs-target="#pills-overview" type="button" role="tab"
+<<<<<<< HEAD
                                             aria-controls="pills-overview" aria-selected="true">overview</button>
+=======
+                                            aria-controls="pills-overview" aria-selected="true">aan</button>
+                                        <button class="nav-link active" id="pills-overview-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-overview" type="button" role="tab"
+                                            aria-controls="pills-overview" aria-selected="true">aan</button>
+>>>>>>> 77fd121dcb77b6082a09e2635bc2b2e0d4478826
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="pills-lokasi-tab" data-bs-toggle="pill"

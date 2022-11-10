@@ -28,6 +28,7 @@ Route::get('/wisata-jogja/{slug}', function ($slug) {
         'jombotron' => App\Models\cover::all(),
         'logos' => App\Models\logo::all(),
         'wisatas' => App\Models\wisata::Where('categori_id',$categori->id)->orderBy('id','desc')->get(),
+        'categoris' => App\Models\categori::all(),
     ]);
 });
 Route::get('/detail-wisata/{slug}', function ($slug) {
@@ -35,9 +36,18 @@ Route::get('/detail-wisata/{slug}', function ($slug) {
         'jombotron' => App\Models\cover::all(),
         'logos' => App\Models\logo::all(),
         'wisata' => App\Models\wisata::firstWhere('slug',$slug),
+        'categoris' => App\Models\categori::all(),
     ]);
 });
-
+Route::get('/contact',function(){
+    return view('home.contact',[
+        'jombotron' => App\Models\cover::all(),
+        'logos' => App\Models\logo::all(),
+        'contact' => App\Models\contact::all(),
+        'categoris' => App\Models\categori::all(),
+    ]);
+});
+Route::post('/send-request',[App\Http\Controllers\sendEmailController::class,'send']);
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard',[
