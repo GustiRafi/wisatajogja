@@ -7,7 +7,7 @@
                 @foreach($categoris as $categori)
                 <div class="col-lg-3 col-md-4 col-sm-4 mt-3">
                     <a href="/wisata-jogja/{{$categori->slug}}">
-                        <div class="card text" style="border-radius:28px ;">
+                        <div class="card  text" style="border-radius:28px ;">
                             <img src="{{ asset('storage/' . $categori->image) }}" class="card-img asu"
                                 alt="{{$categori->nama}}">
                             <div class="card-img-overlay">

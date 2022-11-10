@@ -54,39 +54,6 @@
             margin: 0;
             padding: 0;
         }
-
-        .swiper {
-            width: 100%;
-            height: 100%;
-        }
-
-        .swiper-slide {
-            text-align: center;
-            font-size: 18px;
-
-
-            /* Center slide text vertically */
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            -webkit-justify-content: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            -webkit-align-items: center;
-            align-items: center;
-        }
-
-        .swiper-slide img {
-            display: block;
-            width: 75%;
-            height: 75%;
-            object-fit: cover;
-        }
-
     </style>
 </head>
 
@@ -106,7 +73,7 @@
                             <a class="nav-link outline-none" href="/">Home</a>
                         </li>
                         <li class="nav-item ms-2">
-                            <a class="nav-link outline-none" href="/">Contact</a>
+                            <a class="nav-link outline-none" href="/contact">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -129,29 +96,23 @@
                 </div>
                 <div class="row  justify-content-center mt-3">
                     <div class="col-6">
-                        <div class="float-end me-5">
+                        <div class="float-end ms-5">
                             <select class="form-select" aria-label="Default select example">
+                                <option selected>Kategori</option>
                                 @foreach($categoris as $categori)
                                 <option value="{{$categori->nama}}">{{$categori->nama}}</option>
                                 @endforeach
                             </select>
                         </div>
-
-                        <div class="col-6">
-                            <div class="float-start ms-5">
-                                <div class="dropdown ">
-                                    <button class="btn btn-light dropdown-toggle" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Wilayah
-
-                                        <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Action</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                        </ul>
-                                </div>
-                            </div>
+                     </div>
+                    <div class="col-6">
+                        <div class="float-start me-5">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Wilayah</option>
+                                <option velue="yogyakarta">Daerah Istimewa Yogyakarta </option>
+                            </select>
                         </div>
+                     </div>
                     </div>
                 </div>
     </section>
@@ -165,7 +126,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 footer-contact">
-                        <h3>Medilab</h3>
+                        <h3><strong>WONDERFULL YOGYAKARTA</strong></h3>
                         <p>
                             A108 Adam Street <br />
                             New York, NY 535022<br />
@@ -178,11 +139,8 @@
                     <div class="col-lg-2 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="/contact">Contact</a></li>
                         </ul>
                     </div>
 
