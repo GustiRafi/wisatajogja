@@ -60,14 +60,7 @@
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link active" id="pills-overview-tab" data-bs-toggle="pill"
                                             data-bs-target="#pills-overview" type="button" role="tab"
-<<<<<<< HEAD
                                             aria-controls="pills-overview" aria-selected="true">overview</button>
-=======
-                                            aria-controls="pills-overview" aria-selected="true">aan</button>
-                                        <button class="nav-link active" id="pills-overview-tab" data-bs-toggle="pill"
-                                            data-bs-target="#pills-overview" type="button" role="tab"
-                                            aria-controls="pills-overview" aria-selected="true">aan</button>
->>>>>>> 77fd121dcb77b6082a09e2635bc2b2e0d4478826
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="pills-lokasi-tab" data-bs-toggle="pill"
@@ -129,72 +122,32 @@
         <div class="card p-2">
             <h1 class="text-center mt-2"><strong>Pernah Kesini??</strong></h1>
             <p class="text-center">Jika sudah pernah, yuk berikan komen untuk tempat wisata ini</p>
-            <div class="row g-2">
-                <div class="col-md-6 col-12 px-2">
-                    <div class="p-5 border bg-white shadow-sm">
-                        <h4 class="text-center mt-2"> Komentar</h4>
-                        <form method="post">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Nama</label>
-                                <input type="name" class="form-control" id="name" aria-describedby="namaHelp"
-                                    name="name">
-                                <div id="namaHelp" class="form-text">We'll never share your nama with anyone else.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                                    name="email">
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="coment" class="form-label">Komentar</label>
-                                <textarea class="form-control" id="coment" name="coment"
-                                    style="height: 100px"></textarea>
-                            </div>
-                            <input type="text" name="wisata_id" id="wisata_id" value="{{$wisata->id}}">
-                            <button type="submit" id="submit" class="btn btn-primary float-end">Submit</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-6 col-12 px-2">
-                    <div class="p-5 border bg-white shadow-sm">
-                        <h4 class="text-center mt-2">Daftar Komentar</h4>
-                        <div class="mb-3 mt-4">
-                            <input type="name" class="form-control" id="exampleInputnama1" aria-describedby="namaHelp">
-                        </div>
-                    </div>
-                </div>
-
+            <div class="m-3">
+                <div id="disqus_thread"></div>
+                <script>
+                /**
+                 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                /*
+                var disqus_config = function () {
+                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                */
+                (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document,
+                        s = d.createElement('script');
+                    s.src = 'https://wonderfullyogyakarta.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
+                        powered by Disqus.</a></noscript>
             </div>
         </div>
     </div>
     <!-- End Why Us Section -->
 
 </main>
-<script>
-$(document).ready(function() {
-    $("#submit").click(function(e) {
-        e.preventDefault();
-        name = $("#name").val();
-        email = $("#email").val();
-        coment = $("#coment").val();
-        wisata_id = $('#wisata_id').val();
-        $.ajax({
-            type: "POST",
-            data: {
-                "name": name,
-                "email": email,
-                "coment": coment,
-                "wisata_id": wisata_id
-            },
-            url: "/coment/" + wisata_id,
-            success: function(data) {
-                $("#success").html(data);
-            }
-        });
-    });
-});
-</script>
 @endsection

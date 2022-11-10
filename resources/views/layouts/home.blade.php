@@ -40,20 +40,20 @@
   * License: https://bootstrapmade.com/license/
     ======================================================== -->
     <style>
-        html,
-        body {
-            position: relative;
-            height: 100%;
-        }
+    html,
+    body {
+        position: relative;
+        height: 100%;
+    }
 
-        body {
-            background: #eee;
-            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #000;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
     </style>
 </head>
 
@@ -104,7 +104,7 @@
                                 @endforeach
                             </select>
                         </div>
-                     </div>
+                    </div>
                     <div class="col-6">
                         <div class="float-start me-5">
                             <select class="form-select" aria-label="Default select example">
@@ -112,9 +112,9 @@
                                 <option velue="yogyakarta">Daerah Istimewa Yogyakarta </option>
                             </select>
                         </div>
-                     </div>
                     </div>
                 </div>
+            </div>
     </section>
     <!-- End Hero -->
 
@@ -203,27 +203,26 @@
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
     <script>
-        var swiper = new Swiper(".mySwiper", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            autoplay: {
-                delay: 2000,
-                disableOnInteraction: false,
-            },
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-            },
-        });
-
+    var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+    });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
