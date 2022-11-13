@@ -40,20 +40,20 @@
   * License: https://bootstrapmade.com/license/
     ======================================================== -->
     <style>
-    html,
-    body {
-        position: relative;
-        height: 100%;
-    }
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
 
-    body {
-        background: #eee;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color: #000;
-        margin: 0;
-        padding: 0;
-    }
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
     </style>
 </head>
 
@@ -88,9 +88,27 @@
                 <div class="row  justify-content-center mt-4">
                     <div class="col-lg-5 col-md-4 col-sm-6">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Search"
-                                aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <button class="btn btn-light" type="button" id="button-addon2"><i class="bi bi-search"></i>
+                            <button class="form-control" type="button" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"><i class="bi bi-search float-start pe-1">Cari
+                                    Wisata</i></button>
+                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <input type="search" class="form-control" id="wisata" name="wisata"
+                                            placeholder="Cari Wisata..." autocorrect="off" autocomplete="off"
+                                            autocapitalize="off">
+                                        <div class="mt-3" id="result">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -202,27 +220,46 @@
 
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
+    <script src="/jquery-3.6.1.js"></script>
     <script>
-    var swiper = new Swiper(".mySwiper", {
-        effect: "coverflow",
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: "auto",
-        autoplay: {
-            delay: 2000,
-            disableOnInteraction: false,
-        },
-        coverflowEffect: {
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-        },
-    });
+        $(document).ready(function () {
+            $("#wisata").keyup(function () {
+                const value = $(this).val();
+                $.ajax({
+                    type: 'get',
+                    url: '/result',
+                    data: {
+                        'wisata': value
+                    },
+                    success: function (data) {
+                        $('#result').html(data);
+                    }
+                });
+
+            });
+        });
+    </script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+            },
+        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

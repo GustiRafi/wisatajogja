@@ -48,6 +48,7 @@ Route::get('/contact',function(){
     ]);
 });
 Route::post('/send-request',[App\Http\Controllers\sendEmailController::class,'send']);
+Route::get('/result',[App\Http\Controllers\cariController::class,'cari']);
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard',[
