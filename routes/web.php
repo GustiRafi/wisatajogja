@@ -20,6 +20,9 @@ Route::get('/', function () {
         'logos' => App\Models\logo::all(),
         'categoris' => App\Models\categori::all(),
         'cover' => App\Models\cover::all(),
+        'abouts' => App\Models\about::all(),
+        'contact' => App\Models\contact::all(),
+        'sosmeds' => App\Models\sosmed::all(),
     ]);
 });
 Route::get('/wisata-jogja/{slug}', function ($slug) {
@@ -29,6 +32,8 @@ Route::get('/wisata-jogja/{slug}', function ($slug) {
         'logos' => App\Models\logo::all(),
         'wisatas' => App\Models\wisata::Where('categori_id',$categori->id)->orderBy('id','desc')->get(),
         'categoris' => App\Models\categori::all(),
+        'contact' => App\Models\contact::all(),
+        'sosmeds' => App\Models\sosmed::all(),
     ]);
 });
 Route::get('/detail-wisata/{slug}', function ($slug) {
@@ -37,6 +42,8 @@ Route::get('/detail-wisata/{slug}', function ($slug) {
         'logos' => App\Models\logo::all(),
         'wisata' => App\Models\wisata::firstWhere('slug',$slug),
         'categoris' => App\Models\categori::all(),
+        'contact' => App\Models\contact::all(),
+        'sosmeds' => App\Models\sosmed::all(),
     ]);
 });
 Route::get('/contact',function(){
@@ -45,6 +52,7 @@ Route::get('/contact',function(){
         'logos' => App\Models\logo::all(),
         'contact' => App\Models\contact::all(),
         'categoris' => App\Models\categori::all(),
+        'sosmeds' => App\Models\sosmed::all(),
     ]);
 });
 Route::post('/send-request',[App\Http\Controllers\sendEmailController::class,'send']);
