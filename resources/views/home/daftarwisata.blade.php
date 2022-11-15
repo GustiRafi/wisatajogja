@@ -3,9 +3,13 @@
 <div class="col-6">
     <div class="float-end ms-5">
         <select class="form-select" aria-label="Default select example" id="kategori">
-            @foreach($categoris as $categori)
             <option selected>Kategori</option>
-            <option><a href="/wisata-jogja/{{ $categori->slug }}" class="text-decoration-none">{{$categori->nama}}</a></option>
+            @foreach($categoris as $categori)
+            @if($categori->id === $kategori)
+            <option value="{{$categori->slug}}" selected>{{$categori->nama}}</option>
+            @else
+            <option value="{{$categori->slug}}">{{$categori->nama}}</option>
+            @endif
             @endforeach
         </select>
     </div>
@@ -14,11 +18,11 @@
     <div class="float-start me-5">
         <select class="form-select" aria-label="Default select example" id="wilayah">
             <option selected>Wilayah</option>
-            <option velue="yogyakarta">Yogyakarta</option>
-            <option velue="bantul">Bantul</option>
-            <option velue="sleman">Sleman</option>
-            <option velue="gunung kidul">Gunung Kidul</option>
-            <option velue="kulon progo">Kulon Progo</option>
+            <option velue="Kab.yogyakarta">Yogyakarta</option>
+            <option velue="Kab.bantul">Bantul</option>
+            <option velue="Kab.sleman">Sleman</option>
+            <option velue="Kab.gunung kidul">Gunung Kidul</option>
+            <option velue="Kab.kulon progo">Kulon Progo</option>
         </select>
     </div>
 </div>

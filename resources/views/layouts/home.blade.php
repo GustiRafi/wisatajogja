@@ -249,6 +249,24 @@
 
             });
         });
+        $(document).ready(function () {
+            $("#kategori").change(function () {
+                const value = $(this).children("option:selected").val();
+                window.location.replace("/wisata-jogja/" + value);
+                // $.ajax({
+                //     type: 'get',
+                //     url: '/cari-wilayah',
+                //     data: {
+                //         'kategori' : categori,
+                //         'wilayah': value
+                //     },
+                //     success: function (data) {
+                //         $('#daftarwisata').html(data);
+                //     }
+                // });
+
+            });
+        });
     </script>
     <script>
         var swiper = new Swiper(".mySwiper", {
