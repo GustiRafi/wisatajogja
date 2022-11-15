@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 
 /*
@@ -32,6 +33,7 @@ Route::get('/wisata-jogja/{slug}', function ($slug) {
         'logos' => App\Models\logo::all(),
         'wisatas' => App\Models\wisata::Where('categori_id',$categori->id)->orderBy('id','desc')->get(),
         'categoris' => App\Models\categori::all(),
+        'kategori' => $categori->id,
         'contact' => App\Models\contact::all(),
         'sosmeds' => App\Models\sosmed::all(),
     ]);
@@ -56,7 +58,8 @@ Route::get('/contact',function(){
     ]);
 });
 Route::post('/send-request',[App\Http\Controllers\sendEmailController::class,'send']);
-Route::get('/result',[App\Http\Controllers\cariController::class,'cari']);
+Route::get('/cari-nama',[App\Http\Controllers\cariController::class,'cari']);
+Route::get('/cari-wilayah',[App\Http\Controllers\cariController::class,'cariwilayah']);
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard',[

@@ -51,4 +51,39 @@ class cariController extends Controller
             return response($output);
         }
     }
+
+    public function cariwilayah(Request $request)
+    {
+        if($request->ajax())
+        {
+            $output="";
+            $wisata = wisata::where('addres','LIKE','%'.$request->wilayah."%")->where('categori_id',$request->kategori)->get();
+            $countWisata = count($wisata);
+            if($wisata)
+            {
+                foreach($wisata as $item)
+                {
+                    foreach(explode(',',$item->image) as $img)
+                    {
+                        $image='<img src="'.$img.'" class="w-100 img-fluid" alt="" srcset="">';
+                    }
+                    $output.= '<div class="col-lg-4 col-md-5 col-sm-10 p-3">
+                    <a href="/detail-wisata/'.$item->slug.'">
+                        <div class="mb-3">'.$image.'
+                            <div class="card-body">
+                                <h5 class="card-title m-4">'.$item->nama.'</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>';
+                            // $output.= '<a href="/detail-wisata/'.$item->slug.'">'.$item->nama.'</a>';
+                    }
+            }
+            if($countWisata == 0)
+                {
+                    $output.= '<p>No Item found</p>';
+                }
+            return response($output);
+        }
+    }
 }

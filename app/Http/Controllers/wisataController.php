@@ -124,7 +124,6 @@ class wisataController extends Controller
             'image.*' => ['image','mimes:jpeg,png,jpg,gif,svg']
         ]);
 
-        dd($validate);
 
         if($request->slug != $wisata->slug)
         {

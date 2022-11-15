@@ -13,7 +13,7 @@
     @foreach($logos as $brand)
     <link rel="shortcut icon" href="/storage/{{ $brand->logo }}" />
     @endforeach
-    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    {{-- <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon" /> --}}
 
     <!-- Google Fonts -->
     <link
@@ -122,28 +122,7 @@
                     </div>
                 </div>
                 <div class="row  justify-content-center mt-3">
-                    <div class="col-6">
-                        <div class="float-end ms-5">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Kategori</option>
-                                @foreach($categoris as $categori)
-                                <option value="{{$categori->nama}}">{{$categori->nama}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="float-start me-5">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Wilayah</option>
-                                <option velue="yogyakarta">Yogyakarta</option>
-                                <option velue="bantul">Bantul</option>
-                                <option velue="sleman">Sleman</option>
-                                <option velue="gunung kidul">Gunung Kidul</option>
-                                <option velue="kulon progo">Kulon Progo</option>
-                            </select>
-                        </div>
-                    </div>
+                    @yield('caribar')
                 </div>
             </div>
     </section>
@@ -240,12 +219,31 @@
                 const value = $(this).val();
                 $.ajax({
                     type: 'get',
-                    url: '/result',
+                    url: '/cari-nama',
                     data: {
                         'wisata': value
                     },
                     success: function (data) {
                         $('#result').html(data);
+                    }
+                });
+
+            });
+        });
+        $(document).ready(function () {
+            const categori = $('#categori').val();
+            $('#categori').hide();
+            $("#wilayah").change(function () {
+                const value = $(this).val();
+                $.ajax({
+                    type: 'get',
+                    url: '/cari-wilayah',
+                    data: {
+                        'kategori' : categori,
+                        'wilayah': value
+                    },
+                    success: function (data) {
+                        $('#daftarwisata').html(data);
                     }
                 });
 

@@ -1,4 +1,28 @@
 @extends('layouts.home')
+@section('caribar')
+<div class="col-6">
+    <div class="float-end ms-5">
+        <select class="form-select" aria-label="Default select example" id="kategori">
+            @foreach($categoris as $categori)
+            <option selected>Kategori</option>
+            <option><a href="/wisata-jogja/{{ $categori->slug }}" class="text-decoration-none">{{$categori->nama}}</a></option>
+            @endforeach
+        </select>
+    </div>
+</div>
+<div class="col-6">
+    <div class="float-start me-5">
+        <select class="form-select" aria-label="Default select example" id="wilayah">
+            <option selected>Wilayah</option>
+            <option velue="yogyakarta">Yogyakarta</option>
+            <option velue="bantul">Bantul</option>
+            <option velue="sleman">Sleman</option>
+            <option velue="gunung kidul">Gunung Kidul</option>
+            <option velue="kulon progo">Kulon Progo</option>
+        </select>
+    </div>
+</div>
+@endsection
 @section('home')
 <style>
 .swiper {
@@ -35,12 +59,13 @@
 </style>
 <main id="main">
     <!-- ======= Why Us Section ======= -->
+    <input type="text" name="categori" id="categori" value="{{ $kategori }}">
     <section id="why-us" class="why-us">
         <div class="container">
             <div class="row justify-content-center" style="margin-top: 100px;">
                 <div class="col-lg-10 col-md-6 col-sm-10 d-flex align-items-stretch">
                     <div class="content shadow">
-                        <div class="row">
+                        <div class="row" id="daftarwisata">
                             @foreach($wisatas as $wisata)
                             <div class="col-lg-4 col-md-5 col-sm-10 p-3">
                                 <a href="/detail-wisata/{{$wisata->slug}}">
