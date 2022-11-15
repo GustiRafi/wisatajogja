@@ -84,6 +84,7 @@
                         <li class="nav-item ms-2">
                             <a class="nav-link outline-none" href="/contact">Contact</a>
                         </li>
+                        <button type="button" class="btn btn-info mx-3 my-3"><a href="/dashboard"><i class="bi bi-person"></i></a></button>
                     </ul>
                 </div>
             </div>
