@@ -81,7 +81,7 @@ class cariController extends Controller
             }
             if($countWisata == 0)
                 {
-                    $output.= '<p>No Item found</p>';
+                    $output.= '<div class="col-12 text-black p-3"><p>No Item Found</p></div>';
                 }
             return response($output);
         }

@@ -54,38 +54,39 @@
             margin: 0;
             padding: 0;
         }
-    body {
-        background: #eee;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-        font-size: 14px;
-        color: #000;
-        margin: 0;
-        padding: 0;
-    }
 
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
     </style>
 </head>
 
 <body>
 
-    <section id="hero" class="d-flex align-items-center">
+    <section id="hero" class="d-flex align-items-center" style="background: url('/storage/{{ $cover->image }}') top center">
         <!-- navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top" id="navbar">
-            <div class="container text-white" id="navCont">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item ms-2">
-                            <a class="nav-link outline-none" href="/">Home</a>
-                        </li>
-                        <li class="nav-item ms-2">
-                            <a class="nav-link outline-none" href="/contact">Contact</a>
-                        </li>
-                        <button type="button" class="btn btn-info mx-3 my-3"><a href="/dashboard"><i class="bi bi-person"></i></a></button>
-                    </ul>
+        <nav class="navbar-light bg-transparent fixed-top" id="nav">
+            <div class="container">
+                <div class="d-flex">
+                    <div class="float-start"></div>
+                    <div class="float-end ms-auto d-flex">
+                        <ul class="nav mb-2 mb-lg-0 text-white">
+                            <li class="nav-item ms-2">
+                                <a class="nav-link outline-none text-danger" href="/">Home</a>
+                            </li>
+                            <li class="nav-item ms-2">
+                                <a class="nav-link outline-none text-danger" href="/contact">Contact</a>
+                            </li>
+                            <li class="nav-item ms-2">
+                                <a href="/dashboard" class="nav-link outline-none text-danger"><i class="bi bi-person"></i></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -230,8 +231,7 @@
                 });
 
             });
-        });
-        $(document).ready(function () {
+
             const categori = $('#categori').val();
             $('#categori').hide();
             $("#wilayah").change(function () {
@@ -240,7 +240,7 @@
                     type: 'get',
                     url: '/cari-wilayah',
                     data: {
-                        'kategori' : categori,
+                        'kategori': categori,
                         'wilayah': value
                     },
                     success: function (data) {
@@ -249,27 +249,33 @@
                 });
 
             });
-        });
-        $(document).ready(function () {
+
             $("#kategori").change(function () {
                 const value = $(this).children("option:selected").val();
                 window.location.replace("/wisata-jogja/" + value);
-                // $.ajax({
-                //     type: 'get',
-                //     url: '/cari-wilayah',
-                //     data: {
-                //         'kategori' : categori,
-                //         'wilayah': value
-                //     },
-                //     success: function (data) {
-                //         $('#daftarwisata').html(data);
-                //     }
-                // });
-
             });
+
         });
     </script>
     <script>
+        var navBar = document.getElementById("nav");
+
+        function scroll() {
+            let calc = window.scrollY; // mendapatkan posisi scroll dari atas ke bawah
+            if (calc > 0) { // jika posisi scroll lebih dari 0 pixel
+                navBar.classList.add("d-none"); // ganti background navbar
+            }else if (calc <= 0) { // jika posisi scroll sama dengan 0 pixel
+                navBar.classList.remove("d-none");
+            }
+        }
+
+        //panggil saat inisialisasi
+        scroll();
+
+        // panggil saat discroll
+        window.onscroll = () => { // jika tidak work untuk arrow function, coba pakai function biasa
+            scroll();
+        };
         var swiper = new Swiper(".mySwiper", {
             effect: "coverflow",
             grabCursor: true,

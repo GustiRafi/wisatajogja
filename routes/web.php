@@ -20,7 +20,7 @@ Route::get('/', function () {
         'jombotron' => App\Models\cover::all(),
         'logos' => App\Models\logo::all(),
         'categoris' => App\Models\categori::all(),
-        'cover' => App\Models\cover::all(),
+        'cover' => App\Models\cover::first(),
         'abouts' => App\Models\about::all(),
         'contact' => App\Models\contact::all(),
         'sosmeds' => App\Models\sosmed::all(),
@@ -36,6 +36,7 @@ Route::get('/wisata-jogja/{slug}', function ($slug) {
         'kategori' => $categori->id,
         'contact' => App\Models\contact::all(),
         'sosmeds' => App\Models\sosmed::all(),
+        'cover' => App\Models\cover::first(),
     ]);
 });
 Route::get('/detail-wisata/{slug}', function ($slug) {
@@ -46,6 +47,7 @@ Route::get('/detail-wisata/{slug}', function ($slug) {
         'categoris' => App\Models\categori::all(),
         'contact' => App\Models\contact::all(),
         'sosmeds' => App\Models\sosmed::all(),
+        'cover' => App\Models\cover::first(),
     ]);
 });
 Route::get('/contact',function(){
@@ -55,6 +57,7 @@ Route::get('/contact',function(){
         'contact' => App\Models\contact::all(),
         'categoris' => App\Models\categori::all(),
         'sosmeds' => App\Models\sosmed::all(),
+        'cover' => App\Models\cover::first(),
     ]);
 });
 Route::post('/send-request',[App\Http\Controllers\sendEmailController::class,'send']);
