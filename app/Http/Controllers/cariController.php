@@ -81,7 +81,9 @@ class cariController extends Controller
             }
             if($countWisata == 0)
                 {
-                    $output.= '<div class="col-12 text-black p-3"><p>No Item Found</p></div>';
+                    $output.= '<div class="col-lg-12 text-black p-3 mx-5">
+                    <img src="/assets/img/notfund.png" class="w-100 text-center">
+                    </div>';
                 }
             return response($output);
         }

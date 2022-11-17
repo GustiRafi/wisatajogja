@@ -68,7 +68,9 @@
 
 <body>
 
-    <section id="hero" class="d-flex align-items-center" style="background: url('/storage/{{ $cover->image }}') top center">
+    <section id="hero" class="d-flex align-items-center" style="background: url('/storage/{{ $cover->image }}')top center;width: 100%;
+        height: 90vh; background-size: cover;
+    margin-bottom: -180px;">
         <!-- navbar -->
         <nav class="navbar-light bg-transparent fixed-top" id="nav">
             <div class="container">
@@ -235,7 +237,7 @@
             const categori = $('#categori').val();
             $('#categori').hide();
             $("#wilayah").change(function () {
-                const value = $(this).val();
+                const value = $(this).children("option:selected").val();
                 $.ajax({
                     type: 'get',
                     url: '/cari-wilayah',

@@ -5,7 +5,7 @@
         <div class="container text-center mt-5">
             <div class="row g-2 mt-5">
                 @foreach($categoris as $categori)
-                <div class="col-lg-3 col-md-4 col-3 mt-3">
+                <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
                     <a href="/wisata-jogja/{{$categori->slug}}">
                         <div class="card  text card-image" style="border-radius:28px ;">
                             <img src="{{ asset('storage/' . $categori->image) }}" class="card-img asu"
@@ -23,24 +23,20 @@
 </section>
 <section>
     <div class="text-center container">
-        <img src="/assets/img/WISATA YOGYAKARTA.png" alt="">
-    </div>
-    <div class="row justify-content-center mt-3">
-        <div class="card mb-3 text-black" style="max-width:1000px;">
-            <div class="row g-0 justify-content-center">
-                @foreach($abouts as $item)
-                <div class="col-md-5">
-                    <img src="{{ asset('storage/' . $item->image) }}" class="img-fluid rounded-start m-5 W-100" alt="...">
+        {{-- <img src="/assets/img/WISATA YOGYAKARTA.png" alt=""> --}}
+        <h1 class="text-danger"><strong>WISATA YOGYAKARTA</strong></h1>
+        <div class="card mb-3" >
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="/storage/{{ $about->image }}" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                {!! $about->deskripsi !!}
                 </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-6">
-                    <div class="card-body taxt-dark">
-                        {!! $item->deskripsi !!}
-                    </div>
-                </div>
-                @endforeach
+              </div>
             </div>
-        </div>
+          </div>
     </div>
 </section>
 <!-- <section>

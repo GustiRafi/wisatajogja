@@ -18,11 +18,11 @@
     <div class="float-start me-5">
         <select class="form-select" aria-label="Default select example" id="wilayah">
             <option selected>Wilayah</option>
-            <option velue="Kab.yogyakarta">Yogyakarta</option>
-            <option velue="Kab.bantul">Bantul</option>
-            <option velue="Kab.sleman">Sleman</option>
-            <option velue="Kab.gunung kidul">Gunung Kidul</option>
-            <option velue="Kab.kulon progo">Kulon Progo</option>
+            <option value="yogyakarta">Daerah Istimewa Yogyakarta</option>
+            <option value="bantul">Bantul</option>
+            <option value="sleman">Sleman</option>
+            <option value="gunung kidul">Gunung Kidul</option>
+            <option value="kulon progo">Kulon Progo</option>
         </select>
     </div>
 </div>
@@ -33,10 +33,10 @@
     <input type="text" name="categori" id="categori" value="{{ $kategori }}">
     <section id="why-us" class="why-us">
         <div class="container">
-            <div class="row justify-content-center" style="margin-top: 100px;">
+            <div class="row row-cols-1 justify-content-center" style="margin-top: 100px;">
                 <div class="col-lg-10 col-md-6 col-sm-10 d-flex align-items-stretch">
-                    <div class="content shadow">
-                        <div class="row justify-content-center" id="daftarwisata">
+                    <div class="content shadow w-100"  id="content">
+                        <div class="row row-cols-2 justify-content-center" id="daftarwisata">
                             @foreach($wisatas as $wisata)
                             <div class="col-lg-4 col-md-5 col-sm-10 p-3">
                                 <a href="/detail-wisata/{{$wisata->slug}}">

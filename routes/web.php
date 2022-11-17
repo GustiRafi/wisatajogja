@@ -21,7 +21,7 @@ Route::get('/', function () {
         'logos' => App\Models\logo::all(),
         'categoris' => App\Models\categori::all(),
         'cover' => App\Models\cover::first(),
-        'abouts' => App\Models\about::all(),
+        'about' => App\Models\about::first(),
         'contact' => App\Models\contact::all(),
         'sosmeds' => App\Models\sosmed::all(),
     ]);
