@@ -60,13 +60,25 @@ Route::get('/contact',function(){
         'cover' => App\Models\cover::first(),
     ]);
 });
+Route::get('/tambahkan-wisata',function(){
+    return view('home.wisata-baru',[
+        'jombotron' => App\Models\cover::all(),
+        'logos' => App\Models\logo::all(),
+        'contact' => App\Models\contact::all(),
+        'categoris' => App\Models\categori::all(),
+        'sosmeds' => App\Models\sosmed::all(),
+        'cover' => App\Models\cover::first(),
+    ]);
+});
 Route::post('/send-request',[App\Http\Controllers\sendEmailController::class,'send']);
+Route::post('/daftarkan-wisata',[App\Http\Controllers\verifieController::class,'tambahkan']);
 Route::get('/cari-nama',[App\Http\Controllers\cariController::class,'cari']);
 Route::get('/cari-wilayah',[App\Http\Controllers\cariController::class,'cariwilayah']);
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard',[
-            'wisata' => App\Models\wisata::all(),
+            'wisata' => App\Models\wisata::where("is_verified",1)->get(),
+            'reqwisata' => App\Models\wisata::where("is_verified",0)->get(),
             'kategori' => App\Models\categori::all(),
             'komen' => App\Models\comment::all(),
             'logos' => App\Models\logo::all(),
@@ -74,6 +86,9 @@ Route::middleware('auth')->group(function () {
     })->name('dashboard');
     Route::resource('/dashboard/wisata', App\Http\Controllers\wisataController::class);
     Route::resource('/dashboard/categori',App\Http\Controllers\categoriController::class);
+    Route::get('/dashboard/wisata-baru',[App\Http\Controllers\verifieController::class,'index']);
+    Route::post('/dashboard/wisata-baru/{id}',[App\Http\Controllers\verifieController::class,'verifie']);
+    Route::delete('/dashboard/wisata-baru/{id}',[App\Http\Controllers\verifieController::class,'delete']);
 
     Route::prefix("/settings")->group(function (){
         Route::get("/logo", [App\Http\Controllers\logoController::class,'index']);

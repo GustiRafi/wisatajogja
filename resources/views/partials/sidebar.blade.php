@@ -18,6 +18,12 @@
                 <span class="menu-title">Wisata</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard/wisata-baru">
+                <i class="menu-icon mdi mdi-table"></i>
+                <span class="menu-title">Wisata Baru</span>
+            </a>
+        </li>
         <li class="nav-item nav-category">Web Settings</li>
         <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#web-settings" aria-expanded="false"

@@ -72,68 +72,33 @@
     <section id="hero" class="d-flex align-items-center" style="background: url('/storage/{{ $cover->image }}')top center;width: 100%;
         height: 90vh; background-size: cover;
     margin-bottom: -180px;">
-        <!-- navbar -->
-        <nav class="navbar-light bg-transparent fixed-top" id="nav">
-            <div class="container">
-                <div class="d-flex">
-                    <div class="float-start"></div>
-                    <div class="float-end ms-auto d-flex">
-                        <ul class="nav mb-2 mb-lg-0 text-white">
-                            <li class="nav-item ms-2">
-                                <a class="nav-link outline-none text-danger" href="/">Home</a>
-                            </li>
-                            <li class="nav-item ms-2">
-                                <a class="nav-link outline-none text-danger" href="/contact">Contact</a>
-                            </li>
-                            <li class="nav-item ms-2">
-                                <a href="/dashboard" class="nav-link outline-none text-danger"><i class="bi bi-person"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <!-- akhir navbar -->
         <div class="container">
             <div class="text-center container">
                 @foreach($logos as $brand)
                 <img src="/storage/{{ $brand->logo }}" class="img-fluid" alt="">
                 @endforeach
-                <div class="row  justify-content-center mt-4">
-                    <div class="col-lg-5 col-md-4 col-sm-6">
-                        <div class="input-group mb-3">
-                            <button class="form-control" type="button" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"><i class="bi bi-search float-start pe-1">Cari
-                                    Wisata</i></button>
-                        </div>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <input type="search" class="form-control" id="wisata" name="wisata"
-                                            placeholder="Cari Wisata..." autocorrect="off" autocomplete="off"
-                                            autocapitalize="off">
-                                        <div class="mt-3" id="result">
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row  justify-content-center mt-3">
-                    @yield('caribar')
-                </div>
             </div>
     </section>
     <!-- End Hero -->
 
-    @yield('home')
+    <section id="why-us" class="why-us">
+        <div class="container">
+            <div class="row justify-content-center" style="margin-top: 100px;">
+                <div class="align-items-stretch">
+                    <div class="content shadow pb-5">
+                        <div class="text-center">
+                            <h3><b>Hallo {{ $uploader }}</b></h3>
+                            <div class="mt-3 pt-3">
+                                <p>Kami Telah meninjau tentang tempat wisata baru yang anda tambahkan pada tanggal {{ $tanggal_kirim }} dengan nama : {{$wisata_nama}}.Kami telah menyetujui penambahan wisata {{ $wisata_nama }}.Sejak Email ini anda terima maka {{ $wisata_nama }} sudah terdaftar di <a href="wonderfullyogyakarta.com">wonderfullyogyakarta.com</a></p>
+                                <p>Terma kasih telah berpartisipasi</p>
+                                <p>Wonderfull Team</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
@@ -152,8 +117,8 @@
                     <div class="col-lg-2 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="/contact">Contact</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="wonderfullyogyakarta.com">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="wonderfullyogyakarta.com/contact">Contact</a></li>
                         </ul>
                     </div>
 
@@ -218,88 +183,6 @@
     <!-- Template Main JS File -->
     <script src="/assets/js/main.js"></script>
     <script src="/jquery-3.6.1.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#wisata").keyup(function () {
-                const value = $(this).val();
-                $.ajax({
-                    type: 'get',
-                    url: '/cari-nama',
-                    data: {
-                        'wisata': value
-                    },
-                    success: function (data) {
-                        $('#result').html(data);
-                    }
-                });
-
-            });
-
-            const categori = $('#categori').val();
-            $('#categori').hide();
-            $("#wilayah").change(function () {
-                const value = $(this).children("option:selected").val();
-                $.ajax({
-                    type: 'get',
-                    url: '/cari-wilayah',
-                    data: {
-                        'kategori': categori,
-                        'wilayah': value
-                    },
-                    success: function (data) {
-                        $('#daftarwisata').html(data);
-                    }
-                });
-
-            });
-
-            $("#kategori").change(function () {
-                const value = $(this).children("option:selected").val();
-                window.location.replace("/wisata-jogja/" + value);
-            });
-
-        });
-    </script>
-    <script>
-        var navBar = document.getElementById("nav");
-
-        function scroll() {
-            let calc = window.scrollY; // mendapatkan posisi scroll dari atas ke bawah
-            if (calc > 0) { // jika posisi scroll lebih dari 0 pixel
-                navBar.classList.add("d-none"); // ganti background navbar
-            }else if (calc <= 0) { // jika posisi scroll sama dengan 0 pixel
-                navBar.classList.remove("d-none");
-            }
-        }
-
-        //panggil saat inisialisasi
-        scroll();
-
-        // panggil saat discroll
-        window.onscroll = () => { // jika tidak work untuk arrow function, coba pakai function biasa
-            scroll();
-        };
-        var swiper = new Swiper(".mySwiper", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            autoplay: {
-                delay: 2000,
-                disableOnInteraction: false,
-            },
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-            },
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">

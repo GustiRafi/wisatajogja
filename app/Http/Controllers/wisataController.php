@@ -21,7 +21,7 @@ class wisataController extends Controller
     public function index()
     {
         return view('dashboard.wisata',[
-            'wisatas' => wisata::orderBy('id','desc')->get(),
+            'wisatas' => wisata::orderBy('id','desc')->where('is_verified',1)->get(),
             'categoris' => categori::all(),
             'logos' => logo::all(),
         ]);
@@ -73,11 +73,12 @@ class wisataController extends Controller
         }
         
         $validate['slug'] = SlugService::createSlug(wisata::class, 'slug', $request->nama,['unique' => true]);
+        $validate['is_verified'] = true ;
         wisata::create($validate);
 
         return redirect('/dashboard/wisata')->with('success', 'New post has been added');
     }
-
+    
     /**
      * Display the specified resource.
      *
