@@ -1,13 +1,13 @@
 @extends('layouts.home')
 @section('home')
 <section>
-    <div class="container">
+    <div class="container mx-auto">
         <div class="container text-center mt-5">
-            <div class="row g-2 mt-5">
+            <div class="row g-2 mt-5 ">
                 @foreach($categoris as $categori)
                 <div class="col-lg-3 col-md-4 col-sm-6 mt-3">
                     <a href="/wisata-jogja/{{$categori->slug}}">
-                        <div class="card  text card-image" style="border-radius:28px ;">
+                        <div class="card  text card-image w-75" style="border-radius:28px ;">
                             <img src="{{ asset('storage/' . $categori->image) }}" class="card-img asu"
                                 alt="{{$categori->nama}}">
                             <div class="card-img-overlay">
