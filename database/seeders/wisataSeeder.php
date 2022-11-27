@@ -34,6 +34,7 @@ class wisataSeeder extends Seeder
                     "jam_buka" => $record[10],
                     "rute" => $record[11],
                     "image" => $record[13],
+                    'is_verified' => 1,
                 ];
                 
                 wisata::create($wisata);

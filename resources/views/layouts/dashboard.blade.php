@@ -93,12 +93,14 @@
     <script src="/js/Chart.roundedBarCharts.js"></script>
     <script src="/trix.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.slim.js"
-        integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk=" crossorigin="anonymous"></script>
+    <script src="/jquery-3.6.1.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script>
+    $(document).ready(function () {
+        
+    });
     document.addEventListener("trix-file-accept", event => {
         event.preventDefault()
     })

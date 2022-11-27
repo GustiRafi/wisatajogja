@@ -27,6 +27,9 @@ return new class extends Migration
             $table->text('rute');
             $table->text('image');
             $table->timestamps();
+            $table->boolean('is_verified')->default(0);
+            $table->string('uploader_name')->default('wonderfull team');
+            $table->string('uploader_email')->default('wonderfullyogya@gmail.com');
         });
     }
 
