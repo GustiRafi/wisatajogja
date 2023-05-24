@@ -1,64 +1,91 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Wonderfullyogyakarta
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Selamat datang di Wonderfullyogyakarta, sebuah website yang didedikasikan untuk menjelajahi keindahan Yogyakarta. Temukan berbagai atraksi, cari destinasi wisata berdasarkan nama, jelajahi berdasarkan kategori, dan bagikan pengalaman Anda melalui komentar. Website ini dibangun dengan menggunakan Laravel dan jQuery untuk memastikan pengalaman pengguna yang mulus.
 
-## About Laravel
+## Fitur
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 1. Pencarian Wisata
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Cari destinasi wisata tertentu berdasarkan nama. Cukup masukkan nama tempat yang ingin Anda jelajahi, dan fitur pencarian kami yang kuat akan menampilkan hasil yang relevan.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 2. Daftar Wisata
 
-## Learning Laravel
+Jelajahi daftar lengkap atraksi yang tersedia di Yogyakarta. Temukan berbagai tempat, ketahui tentang fitur uniknya, dan rencanakan itinerary Anda dengan baik.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 3. Jelajahi berdasarkan Kategori
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Mudah menjelajahi berbagai kategori atraksi wisata. Apakah Anda tertarik dengan situs bersejarah, keajaiban alam, atau landmark budaya, website kami memungkinkan Anda untuk menyaring dan menjelajahi atraksi berdasarkan preferensi Anda.
 
-## Laravel Sponsors
+### 4. Detail Tempat Wisata
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Dapatkan informasi detail tentang setiap tempat wisata, termasuk harga tiket, jam buka, rute, peta lokasi, fasilitas, deskripsi, dan foto-foto yang memukau. Nikmati pengalaman virtual yang mendekati nyata sebelum Anda mengunjungi destinasi tersebut.
 
-### Premium Partners
+### 5. Sistem Komentar
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Bagikan pengalaman dan pandangan Anda dengan meninggalkan komentar pada atraksi tertentu. Berinteraksi dengan pengguna lain, berbagi rekomendasi, dan ciptakan komunitas yang dinamis bagi para pecinta wisata.
 
-## Contributing
+## Teknologi yang Digunakan
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Wonderfullyogyakarta dibangun menggunakan teknologi berikut:
 
-## Code of Conduct
+- Laravel: Framework PHP yang kuat yang memberikan dasar yang kokoh untuk pengembangan web, memastikan skalabilitas, keamanan, dan organisasi kode yang efisien.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- jQuery: Pustaka JavaScript yang cepat, kecil, dan kaya fitur yang menyederhanakan scripting di sisi klien, memudahkan pembuatan halaman web interaktif dan dinamis.
 
-## Security Vulnerabilities
+## Instalasi
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Untuk menjalankan website Wonderfullyogyakarta secara lokal, ikuti langkah-langkah berikut:
 
-## License
+1. Kloning repositori:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+   ```
+   git clone https://github.com/GustiRafi/wisatajogja.git
+   ```
+
+2. Masuk ke direktori proyek:
+
+   ```
+   cd wisatajogja
+   ```
+
+3. Install dependensi:
+
+   ```
+   composer install
+   ```
+
+4. Konfigurasi koneksi database di file `.env`:
+
+   ```
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=nama_database_anda
+   DB_USERNAME=username_anda
+   DB_PASSWORD=password_anda
+   ```
+
+5. Jalankan migrasi database:
+
+   ```
+   php artisan migrate
+   ```
+
+6. Jalankan server pengembangan:
+
+   ```
+   php artisan serve
+   ```
+
+7. Buka browser web Anda dan
+  akses website di `http://localhost:8000`.
+
+## Kontribusi
+
+Kami menyambut kontribusi untuk meningkatkan website Wonderfullyogyakarta. Jika Anda menemukan bug atau memiliki saran untuk perbaikan, silakan buka isu atau ajukan permintaan pull di repositori GitHub kami.
+
+Mari kita bersama-sama membuat Wonderfullyogyakarta menjadi platform yang luar biasa untuk menjelajahi keindahan Yogyakarta!
+
+## Lisensi
+
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
